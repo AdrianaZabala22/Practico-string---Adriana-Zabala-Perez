@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string SubCadena(const string& cad, int p, int n) {
+    if (p < 1 || p > cad.length() || n < 0) return "";
+    return cad.substr(p - 1, n);  // 1-indexed
+}
+
+int main() {
+    string texto;
+    int pos, len;
+    cout << "Cadena: ";
+    getline(cin, texto);
+    cout << "Posicion: ";
+    cin >> pos;
+    cout << "Longitud: ";
+    cin >> len;
+    
+    cout << "Salida: " << SubCadena(texto, pos, len) << endl;
+    return 0;
+}
