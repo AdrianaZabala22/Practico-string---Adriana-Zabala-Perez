@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string texto;
+    cout << "Ingrese el texto: ";
+    getline(cin, texto);
+    
+    int palabras = 0;
+    bool enPalabra = false;  // Bandera para saber si estamos dentro de una palabra
+    
+    for (char c : texto) {
+        if (c == ' ') {
+            enPalabra = false;
+        } else if (!enPalabra) {
+            palabras++;
+            enPalabra = true;
+        }
+    }
+    
+    cout << "Salida: " << palabras << " palabras" << endl;
+    return 0;
+}
