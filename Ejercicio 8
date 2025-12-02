@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Cuantas palabras? ";
+    cin >> n;
+    cin.ignore();  // Limpiar buffer
+    
+    string cadena = "";
+    for (int i = 0; i < n; i++) {
+        string palabra;
+        getline(cin, palabra);
+        if (i > 0) cadena += " ";
+        cadena += palabra;
+    }
+    
+    // Agregar coma como en ejemplo aproximado
+    cadena += ",";
+    
+    cout << "Salida: " << cadena << endl;
+    return 0;
+}
