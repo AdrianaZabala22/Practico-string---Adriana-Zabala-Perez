@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+    string texto;
+    cout << "Ingrese el texto: ";
+    getline(cin, texto);
+    
+    bool nuevaPalabra = true;
+    for (char &c : texto) {
+        if (nuevaPalabra && isalpha(c)) {  // Si es letra y inicio de palabra
+            c = toupper(c);
+            nuevaPalabra = false;
+        } else {
+            c = tolower(c);
+            if (c == ' ') nuevaPalabra = true;
+        }
+    }
+    
+    cout << "Salida: " << texto << endl;
+    return 0;
+}
