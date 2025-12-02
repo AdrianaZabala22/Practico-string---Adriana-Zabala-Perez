@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int BuscarSubCadena(const string& sub, const string& cad) {
+    size_t pos = cad.find(sub);
+    if (pos == string::npos) return -1;
+    return pos;  // 0-index, pero ejemplo 2 para pos1? Ajusta si necesitas +1
+}
+
+int main() {
+    string cadena, subcadena;
+    cout << "Cadena: ";
+    getline(cin, cadena);
+    cout << "Subcadena: ";
+    getline(cin, subcadena);
+    
+    cout << "Salida: " << BuscarSubCadena(subcadena, cadena) << endl;
+    return 0;
+}
