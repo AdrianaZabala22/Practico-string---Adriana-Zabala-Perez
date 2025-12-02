@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <algorithm>  // Para std::sort
+using namespace std;
+
+int main() {
+    string caracteres;
+    cout << "Ingrese los caracteres: ";
+    cin >> caracteres;
+    
+    // Ordenar alfabéticamente (ignora case si quieres, pero ejemplo no lo hace)
+    sort(caracteres.begin(), caracteres.end());
+    
+    cout << "Salida: " << caracteres << endl;
+    return 0;
+}
