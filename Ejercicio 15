@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+bool EsPalindromo(const string& cad) {
+    int izq = 0, der = cad.length() - 1;
+    while (izq < der) {
+        while (izq < der && !isalpha(cad[izq])) izq++;  // Ignorar no-letras
+        while (izq < der && !isalpha(cad[der])) der--;
+        if (tolower(cad[izq]) != tolower(cad[der])) return false;
+        izq++;
+        der--;
+    }
+    return true;
+}
+
+int main() {
+    string texto;
+    cout << "Ingrese texto: ";
+    getline(cin, texto);
+    
+    if (EsPalindromo(texto)) cout << "Salida: true" << endl;
+    else cout << "Salida: false" << endl;
+    return 0;
+}
