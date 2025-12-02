@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+string Codifica(const string& cad, int shift) {
+    string resultado = "";
+    shift = shift % 26;  // Para wrap
+    for (char ch : cad) {
+        if (islower(ch)) {
+            resultado += 'a' + (ch - 'a' + shift) % 26;
+        } else if (isupper(ch)) {
+            resultado += 'A' + (ch - 'A' + shift) % 26;
+        } else {
+            resultado += ch;
+        }
+    }
+    return resultado;
+}
+
+int main() {
+    string texto;
+    int c = 3;  // Fijo como ejemplo, o pide
+    cout << "Ingrese texto: ";
+    getline(cin, texto);
+    
+    cout << "Salida: " << Codifica(texto, c) << endl;
+    return 0;
+}
