@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+    string texto;
+    cout << "Ingrese el texto: ";
+    getline(cin, texto);
+    
+    int count = 0;
+    string pares = "";
+    string vocales = "aeiouAEIOU";
+    
+    for (size_t i = 0; i < texto.length() - 1; i++) {
+        char c1 = tolower(texto[i]);
+        char c2 = tolower(texto[i+1]);
+        if (vocales.find(c1) != string::npos && vocales.find(c2) != string::npos) {
+            count++;
+            if (!pares.empty()) pares += ",";
+            pares += texto[i];
+            pares += texto[i+1];
+            i++;  // Saltar el siguiente para no contar triples como dos
+        }
+    }
+    
+    cout << "Salida: " << count << " vocales (" << pares << ")" << endl;
+    return 0;
+}
