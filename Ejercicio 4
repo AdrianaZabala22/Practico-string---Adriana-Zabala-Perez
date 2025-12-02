@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+    string original;
+    cout << "Ingrese la palabra: ";
+    cin >> original;
+    
+    string invertida = "";
+    for (int i = original.length() - 1; i >= 0; i--) {
+        invertida += original[i];
+    }
+    
+    cout << "Salida: " << invertida << endl;
+    
+    // Verificar capicúa (ignorando case)
+    bool esCapicua = true;
+    for (size_t i = 0; i < original.length(); i++) {
+        if (tolower(original[i]) != tolower(invertida[i])) {
+            esCapicua = false;
+            break;
+        }
+    }
+    if (esCapicua) cout << "Es capicua." << endl;
+    else cout << "No es capicua." << endl;
+    
+    return 0;
+}
