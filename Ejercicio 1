@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+    string texto;
+    cout << "Ingrese el texto: ";
+    getline(cin, texto);
+    
+    for (char &c : texto) {  // Recorremos y modificamos cada carácter
+        c = toupper(c);
+    }
+    
+    cout << "Salida: " << texto << endl;
+    return 0;
+}
